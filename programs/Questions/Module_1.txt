@@ -1,0 +1,104 @@
+Questions
+1. What does the cv2.imread function do?
+A. Loads an image from disk.
+
+2. What does the cv2.imshow function do?
+A. Displays the image to our screen.
+
+3. Why is the cv2.waitKey function important?
+A. Without it, our image would be displayed to screen, but would close automatically.
+
+4. Why do we use command line arguments?
+A. To ensure variables can be supplied at script runtime.
+   Like our image location
+
+5. Suppose we wanted to add a command line argument that requires a user 
+   to supply an output image filename. What would that line of code look like?   
+A. ap.add_argument("-o", "--output", required=True)
+
+   
+6. Suppose we have an image with 383 rows and 972 columns. How many pixels are in this image?
+A. 383 x 972 = 372276
+
+7. Pixels in the RGB and grayscale color space are (normally) represented in the range:
+[0, 255]
+
+8. OpenCV represents RGB images in which order?
+A. BGR
+
+9. Images are most commonly represented in which color space?
+A. RGB, although there are other types of color spaces such as HSV, L*a*b
+
+10. Suppose we wanted to construct the color blue using OpenCV. How do you do that?
+A. (255,0,0) since the pixel colors are represented in BGR (Blue, Green, Red) order in openCV
+
+11. Suppose we wanted to construct the color red using OpenCV. How do you do that?
+A. (0,0,255) since the pixel colors are represented in BGR (Blue, Green, Red) order in openCV
+
+12. The point (0, 0) corresponds to which corner of the image?
+A. Top left corner
+
+13. Both Python and NumPy are zero-indexed:
+True
+
+14. How do you get the pixel value for an image at x=111 and y=225?
+A. image[225, 111]
+
+15. What is the correct line of code to construct a blank canvas with a width of 300 pixels and a height of 200 pixels?
+A. canvas = np.zeros((200, 300, 3),dtype="uint8")
+Observe that we are specifying the height first, and then the width, since we are actually defining the numpy array with all 0
+
+16. What is the correct line of code to draw a blue, filled-in rectangle starting at point (10, 10) and ending at point (60, 60)?
+A. cv2.rectangle(canvas, (10, 10), (60, 60), (255, 0, 0), -1)
+
+17. Define a translation matrix to shift an image 30 pixels up and 50 pixels to the right.
+A. M = np.float32([[1,0,50],[0,1,-30]])
+
+18. Define a translation matrix to shift an image 90 pixels down and 10 pixels to to the left.
+A. M = np.float32([[1,0,-10],[0,1,90]])
+
+19. Define a translation matrix to shift an image 15 pixels to the left and 20 pixels up.
+A. M = np.float32([[1,0,-15],[0,1,-20]])
+
+20. Why do we keep in mind the aspect ratio of an image when resizing?
+A. Because ignoring the aspect ratio when resizing an image can lead to distorted and squished output images.
+
+21. What is the correct order to supply starting and ending coordinates to a NumPy array slice?
+A. startY:endY, startX:endX
+
+22. Assuming 8-bit, unsigned integers, what is the output of 200 + 68 using OpenCV?
+A. 255
+
+23. Assuming 8-bit, unsigned integers, what is the output of 200 + 68 using NumPy? 
+A. 268 - 255 - 1 = 12 (1 must be subtracted, since the values begin at 0)
+
+24. Again, assuming 8-bit unsigned integers, what is the output of 1 – 251 using OpenCV?
+A. 0
+
+25. What about the output of 1 – 251 using NumPy?
+A. If difference is positive or 0, and less than 255 then use it.
+   If difference is positive, and greater than 255 then difference % 255 - 1 (subtract 1 to include 0)
+   If difference is negative, then negative difference % 255 + 1 (add 1 to include 0)
+   Therefore -250%255 + 1 = 6
+   NOTE About modulus:
+   Modulus of a negative number:
+   -205%25 = 25 - 205%25 = 25 - 5 = 20
+   Modulus of a floating point number:
+   23.56%20 = 3.56
+   Modulus of a negative point number:
+   -23.56%20 = 20 - 23.56%20 = 20 -3.56 = 16.44
+   
+26. What is the difference between a bitwise AND and OR?
+A. A bitwise AND is only true when both inputs are > 0; a bitwise OR is true when either inputs are > 0
+
+27. What is the difference between a bitwise OR and XOR?
+A. A bitwise OR is true when either input is > 0; a bitwise XOR is true if one of the inputs is > 0, but not both
+
+28. What does the NOT operator do?
+A. Inverts the "ON" and "OFF" pixels   
+
+29. What function would you use to draw a square mask?
+A.  cv2.rectangle
+
+30. What is the correct code to draw a 10 x 10 square mask centered at coordinates (x, y)?
+A.  cv2.rectangle(mask, (x - 5, y - 5), (x + 5, y + 5), 255, -1))
