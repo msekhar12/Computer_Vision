@@ -1,4 +1,4 @@
-Questions
+﻿Questions
 1. What does the cv2.imread function do?
 A. Loads an image from disk.
 
@@ -102,3 +102,18 @@ A.  cv2.rectangle
 
 30. What is the correct code to draw a 10 x 10 square mask centered at coordinates (x, y)?
 A.  cv2.rectangle(mask, (x - 5, y - 5), (x + 5, y + 5), 255, -1))
+
+31. What is the difference between an erosion and dilation?
+A.  An erosion eats away at the foreground object, while a dilation increases the size of the object.
+ 
+32. What is the difference between a closing and opening operation?
+A.  An opening is an erosion followed by a dilation, while a closing is a dilation followed by an erosion.
+ 
+33. Morphological operations can only be applied to binary images.
+A. False
+ 
+34. Morphological operations can only be applied to binary images.
+A. rectKernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 20))
+ 
+35. Which kernel shape is NOT listed for cv2.getStructuringElement function?
+A. MORPH_CIRCLE
