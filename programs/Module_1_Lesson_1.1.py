@@ -78,3 +78,7 @@ if args["output"]:
     cv2.imwrite(args["output"], image)   
     print("Image saved as {}".format(args["output"]))
 
+
+#To destroy all active windows of cv2.imshow(), use cv2.destroyAllWindows()
+cv2.destroyAllWindows()
+    
