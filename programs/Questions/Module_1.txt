@@ -116,4 +116,32 @@ A. False
 A. rectKernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 20))
  
 35. Which kernel shape is NOT listed for cv2.getStructuringElement function?
-A. MORPH_CIRCLE
+A.  MORPH_CIRCLE
+
+36. As the size of a blurring kernel increases…
+A. The image will appear to be more blurred.
+
+37. The difference between simple average blurring and Gaussian blurring is…
+A. A Gaussian blur is a weighted average of the local pixels and the average blur is not.
+
+38. The median blur is appropriate for…
+A. Reducing salt-and-pepper noise.
+
+39. You would use bilateral filtering when…
+A. When you wanted to smooth your image, but still preserve edges.
+
+40. The success of a computer vision app starts before a single line of code is written. (Related to lighting)
+A. True
+
+41. The RGB color space is an example of an additive color space.
+A. True
+
+42. The HSV color space is less intuitive to define color ranges than RGB.
+A. False
+
+43. When using the L*a*b* color space, the Euclidean distance between colors has actual perceptual meaning.
+A. True
+
+44. Convert the following RGB triplet to grayscale: (156, 107, 81)
+A. 0.299*156 + 0.587*107 + 0.114*81 = 119
+

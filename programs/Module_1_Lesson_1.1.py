@@ -81,4 +81,13 @@ if args["output"]:
 
 #To destroy all active windows of cv2.imshow(), use cv2.destroyAllWindows()
 cv2.destroyAllWindows()
-    
+
+
+#The np.hstack() will horizontally combine the np matrices.
+#This way we can join the images together as one image horizontally, and display
+ 
+h_image = np.hstack([image, \
+                    image, \
+                    image])
+cv2.imshow("h_image", h_image)    
+cv2.waitKey(0)
