@@ -145,3 +145,10 @@ A. True
 44. Convert the following RGB triplet to grayscale: (156, 107, 81)
 A. 0.299*156 + 0.587*107 + 0.114*81 = 119
 
+45. The following are all true about adaptive thresholding, except:
+    a. Adaptive thresholding examines local regions of an image.
+    b. Adaptive thresholding is slower than simple thresholding.
+    c. Adaptive thresholding is often used in real-world computer vision applications.
+    d. Adaptive thresholding requires a threshold value T to be manually supplied.
+A. d
+

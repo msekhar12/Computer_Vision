@@ -6,7 +6,7 @@
 ###########################
 #Believe it or not, the success of (nearly) all computer vision systems and applications is determined
 #before the developer writes a single line of code. Images taken in poor lighting conditions are really difficult to
-#identify.  Lighting conditions play a dramatic role it plays in the successful development of a computer vision system
+#identify.  Lighting conditions play a dramatic role in the successful development of a computer vision system
 #Every single computer vision algorithm, application, and system ever developed and that will be developed will depend on the
 #quality of images input to the system.
 #Lighting can mean the difference between success and failure of your computer vision algorithm,
