@@ -152,3 +152,79 @@ A. 0.299*156 + 0.587*107 + 0.114*81 = 119
     d. Adaptive thresholding requires a threshold value T to be manually supplied.
 A. d
 
+46. What is the primary limitation of Otsu’s method for thresholding?
+    a. It's slower than simple thresholding.
+    b. It assumes a bi-modal distribution of pixel intensities.
+    c. It performs global thresholding.
+A. b
+
+47. What is a common nuisance of using simple thresholding via the cv2.threshold function?
+A. A threshold value T must be manually supplied, making simple thresholding challenging in varying lighting conditions.
+
+48. Download the following image: http://pyimg.co/zf3po
+Suppose we wanted to use the cv2.threshold with the cv2.THRESH_BINARY flag. What is an appropriate value to segment the noisy background from the white circle foreground?
+
+49. For the following image, using the North, South, East, and West neighborhood:
+  [[44,  67,   96],
+  [231, 184, 224],
+  [51,  253,  36]]
+ 
+  49a. Compute Gy:
+  A: 253 - 67 = 186
+ 
+  49b. Compute Gx  for the following input region of an image:
+  A: 224 - 231 = -7
+ 
+  49c. Based on your values of Gx and Gy from the previous two questions, compute the gradient orientation theta:
+  A. arctan2(Gy, Gx) * 180/pi = 92
+ 
+  49d. Apply the Gy Sobel kernel for the image region:
+  A. Gy kernel = [[-1, -2, -1],
+              [ 0,  0,  0],
+              [ 1,  2,  1]]
+ 
+  Hence, we will get: -1*44 -2*67 -1*96 + 1*51 +2*253 +1*36 = 319
+ 
+  49d. Apply the Gx Sobel kernel for the following image region:
+  A. Gx kernel= [[-1, 0, 1],
+             [-2, 0, 2],
+             [-1, 0, 1]]
+ 
+  Hence, we will get: -1*44 +1*96 -2*231 +2*224 -1*51 +1*36 = 23
+ 
+  49e. Based on the Gx and Gy from your Sobel convolutions in Question #4 and Question #5, compute the gradient orientation theta.
+  A. theta = np.arctan2(Gy, Gx) * 180/np.pi = 85
+
+
+50. The gradient magnitude representation of an image is very noisy and makes for a poor edge detector.
+A.  True
+ 
+51. The follow are all types of edges except:
+    Step edge
+    Ramp edge
+    Roof edge
+    Corner edge
+A. Corner edge
+ 
+52. Arguably, the most well known edge detector is the Canny edge detector.
+A. True
+ 
+53. All of the following are steps in the Canny edge detector except:
+    Computing histogram of edge orientations.
+    Non-maxima suppression.
+    Gaussian smoothing.
+    Hysteresis thresholding.
+A. Computing histogram of edge orientations
+ 
+54. A weak edge can still be considered an “edge” (according to the Canny edge detector) if it is connected to a strong edge.
+A. True
+
+55. The cv2.findContours function is usually applied to images in which color space?
+A. Binary
+ 
+56. All of the following are a valid way to draw the 3rd contour in a list, except:
+    A. cv2.drawContours(image, cnts, 2, (0, 255, 0), 1)
+    B. cv2.drawContours(image, cnts[2], -1, (0, 255, 0), 1)
+    C. cv2.drawContours(image, [cnts[2]], -1, (0, 255, 0), 1)
+    Ans: B. The contours must be supplied as a list, even though you intend to access only one contour
+            The cnts[2] will be the thirs contour, and this is not a list.
