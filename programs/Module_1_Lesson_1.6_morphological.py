@@ -69,16 +69,18 @@
 #left-to-right and top-to-bottom across the input image.
 #A foreground pixel in the input image will be kept only if ALL pixels inside the
 #structuring element are > 0. Otherwise, the pixels are set to 0 (i.e. background).
+#That is, if there is at least one black pixel inside the structuring element window, then replace the central pixel 
+#(pixel at the center of structuring element) with black pixel.
 #So this means erosion assumes the background as black and fore ground as anything else other than black?
 #Absolutely. As per my understanding, irrespective of the background or foreground, erosion will always replace
-#every pixel inside the kernel with black pixel, if at least one pixel in the kernel is black.
+#central pixel inside the kernel with black pixel, if at least one pixel in the kernel is black.
 #NOTE that morphological operations are generally applied for binary images.
 #But some morphological operations like Tophat, blackhat are generally applied for gray scaled images.
 #
 #Erosion can be applied to both binary and gray scale images. But what happens if we apply to colored images?
-#No problem. We can apply erosion to colored images also, and we will see the same effect: Replace all cells in the kernel
-#with black pixels, if all the cells in the kernel are NOT black. So if at least one pixel is black in the kernel, replace
-#all other pixels with black
+#No problem. We can apply erosion to colored images also, and we will see the same effect: Replace central cell in the kernel
+#with black pixel, if all the cells in the kernel are NOT black. So if at least one pixel is black in the kernel, replace
+#the kernel's central pixel with black
 
 #Erosion is useful for removing small blobs (non-black colored ones) in an image or disconnecting two connected objects.
 #We will use cv2.erode() to apply erosion
@@ -133,10 +135,13 @@ for i in range(0, 3):
 #This is applicable to coloured images also, although we generally apply dilation on binary images.
 
 #REMEMBER:
-#Erosion: If there is at least one black pixel inside the kernel window, then all the pixels will be replaced by black inside the kernel
-#         In other words all the pixels in the kernel window must have > 0 value to keep them intact from erosion
-#Dilation: If there is at least one non-block pixel in the kernel window then replace all the pixels in the kernel with white pixels.
-#         In other words all the pixels in the kernel window must be 0 to keep them intact from dilation operation
+#Erosion: If there is at least one black pixel inside the kernel window, then the central pixel in the kernel window will be replaced by black pixel
+#         In other words all the pixels in the kernel window must have > 0 value to keep the central pixel (in kernel) the same or as currently existing 
+#Dilation: If there is at least one non-block pixel in the kernel window then replace the central pixel in the kernel with white pixel.
+#         In other words all the pixels in the kernel window must be 0 to keep the central pixel (in the kernel) intact from dilation operation
+
+#Although I used the word "kernel" in this document, always use "structuring element" while refering to morphological operations.
+#So wherever I mentioned Kernel, read it as "structuring element". "Kernel" is usually related to convolutional operations.
 
 for i in range(0, 3):
     dilated = cv2.dilate(gray.copy(),None,iterations=i+1)
@@ -327,7 +332,7 @@ cv2.waitKey(0)
 #3. Morphological operations can only be applied to binary images.
 #A. False
  
-#4. Morphological operations can only be applied to binary images.
+#4. Define a rectangular structuring element with 5 columns and 20 rows.
 #A. rectKernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 20))
  
 #5. Which kernel shape is NOT listed for cv2.getStructuringElement function?

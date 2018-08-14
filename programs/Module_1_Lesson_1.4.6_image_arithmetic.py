@@ -19,6 +19,15 @@ image = cv2.imread(args["image"])
 #Numpy arithmetic will wrap around the values, while cv2 arithmetic will restrict the values between [0, 255]
 #Which one to use depends on the requirement.
 
+#NOTE: To find the wrapped value, you can use the following arithmetic:
+# x%256, where x = modified value. For example, if you add 10 to 250, you will get 260. 260%256 = 4.
+#Hence the wrapped value is 4.
+#if you subtract 10 fro 5, you will get -5. -5%256 = 256 - 5%256 256 - 5 = 251
+
+#The modulus operator is applied as follows:
+#x%n is straight forward value (i.e., the remainder), if x is positive
+#x%n is equal to n - x%n, if x is negative    
+
 #Image arithmetic can be performed in 2 ways
 #Add 10 to 250 using cv2 arithmetic:
 print(cv2.add(np.uint8([10]), np.uint8([250])))

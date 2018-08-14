@@ -19,8 +19,8 @@ import numpy as np
 import argparse
 
 #Create a canvas with only one color channel.
-canvas_1 = np.zeros((300,300))
-canvas_2 = np.zeros((300,300))
+canvas_1 = np.zeros((300,300), dtype ="uint8")
+canvas_2 = np.zeros((300,300), dtype ="uint8")
 
 #Draw a square
 rectangle = cv2.rectangle(canvas_1,(25, 25),(275,275), 255, -1)

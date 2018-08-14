@@ -31,14 +31,14 @@ image = cv2.imread(args["image"])
 #But in cv2 world, the image has origin at the top right corner, and the x axis begins at origin and increases towards right (horizontal axis)
 #The vertical axis begis at origin and as we move down it increases (vertical axis)
 #so if you want to get the image between x1 = 10 and x2 = 50, and y1 = 20 and y2 = 30 then you need to convert it to numpy coordinates:
-#image[y1:(y2+1), x1:(x2+1)]
+#image[y1:y2, x1:x2]
 
 x1 = 10
 x2 = 50
 y1 = 20
 y2 = 30
 
-cropped = image[y1:(y2+1),x1:(x2+1)]
+cropped = image[y1:y2,x1:x2]
 cv2.imshow("original image", image)
 cv2.imshow("cropped image", cropped)
 
@@ -48,7 +48,7 @@ def crop(image, x1=None, x2 = None, y1 = None, y2 = None):
     #y1, y2 are y values on the y-axis of the image
     if x1 is None or x2 is None or y1 is None or y2 is None:
        return image
-    return image[y1:(y2+1),x1:(x2+1)]
+    return image[y1:y2,x1:x2]
 
 cropped = crop(image,x1=100, x2=200, y1=10, y2=150)
 cv2.imshow("re-cropped image", cropped)
