@@ -7,9 +7,9 @@
 
 #pixel: Normally, a pixel is considered the “color” or the “intensity” of light that appears in a given place in our image.
 #       Pixels are the raw building blocks of an image. Every image consists of a set of pixels. There is no finer granularity than the pixel.
-#Most pixels are represented in two ways: grayscale and color. 
-#In a grayscale image, each pixel has a value between 0 and 255, where zero is corresponds to 'black and 255 being 'white'. 
-#The values in between 0 and 255 are varying shades of gray, where values closer to 0 are darker and values closer to 255 are lighter.
+#Most images are represented in two ways: grayscale and color. 
+#In a grayscale image, each pixel has a value between 0 and 255, where zero is corresponds to 'black and 255 corresponds 'white'. 
+#The values between 0 and 255 represent varying shades of gray, where values closer to 0 are darker and values closer to 255 are lighter.
 
 #Color pixels, however, are normally represented in the RGB color space — one value for the Red component, one for Green, and one for Blue, 
 #leading to a total of 3 values per pixel

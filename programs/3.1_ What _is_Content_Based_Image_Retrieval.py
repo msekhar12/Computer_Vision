@@ -34,7 +34,7 @@
 #Important terms:
 #Features (or feature vectors) are just a list of numbers used to abstractly represent and quantify images.
 #Image descriptor converts an image into a feature vector globally. That is the whole image is quantified into a feature vector
-#To build image search engine (CIBR), we extract the features of images and store them so that an input image is
+#To build image search engine (CBIR), we extract the features of images and store them so that an input image is
 #quantified as a feature vector and these features are matched (using some similarity metric such as eucledian distance or cosine similarity etc.)
 #against the stored features and the best matched images are returned.
  
@@ -43,7 +43,7 @@
 #But for large-scale image search engines, we use specialized data structures and algorithms to make searches in an
 #N-dimensional space run in sub-linear time.
  
-#4 Steps for developing a CIBR system:
+#4 Steps for developing a CBIR system:
 #1. Define your image descriptor: Are you interested in the color of the image? The shape of an object in the image? Or do you want to characterize texture?
 #2. Feature extraction and indexing your dataset: Apply this image descriptor to each image in your dataset, extract features from these images,
 #   and write the features to storage (ex. CSV file, RDBMS, Redis, etc.) so they can later be compared for similarity.
@@ -64,8 +64,8 @@
 #                      display results to user <=== Sort results by relevance <===|
  
  
-#Measuring the performance of CIBR:
-#We can use the following metrics to measure the performance of CIBR:
+#Measuring the performance of CBIR:
+#We can use the following metrics to measure the performance of CBIR:
  
 #Precision = Number of relevant images retrived / Total number of images retrieved from database
  
@@ -84,9 +84,9 @@
 #(3) create small “test sets” for particular images that we can use to measure the accuracy of our CBIR system.
  
 #Very important:
-#Is Machine Learning and CIBR same or different?
+#Is Machine Learning and CBIR same or different?
 #They are different. Machine learning deals with automatically learning features to classify an image.
-#But in CIBR there is no training involved. We are just getting the similarity metric between the image being queried and
+#But in CBIR there is no training involved. We are just getting the similarity metric between the image being queried and
 #the images inside the images database.
  
  
